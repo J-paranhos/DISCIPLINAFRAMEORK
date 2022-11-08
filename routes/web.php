@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\ProdutosController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,4 +13,6 @@ use App\Http\Controllers\PacienteController;
 |
 */
 
-Route::get('/imc/{nome}/{peso}/{altura}/{genero}', [PacienteController::class, 'CalcularImc']);
+Route::get('/', [ProdutosController::class, 'ListaTodos']);
+Route::get('/novos', [ProdutosController::class, 'Novos']);
+Route::get('/usados', [ProdutosController::class, 'Usados']);
