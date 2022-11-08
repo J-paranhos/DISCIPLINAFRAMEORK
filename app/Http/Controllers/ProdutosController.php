@@ -59,6 +59,26 @@ class ProdutosController extends Controller
         ]
     ];
     
+    private function Todos()
+    {
+
+       $RetornoLista = [];
+       $indice=1;
+       foreach($this->produtos as $protudo)
+       {
+         
+         $id = $protudo['id'] = $indice;
+         array_push ($protudo,$protudo['id']);     
+         $protudo['preco'] = 'R$ ' . number_format($protudo['preco'], 2, ',', '.');
+
+         array_push($RetornoLista, $protudo);
+        $indice+=1; 
+       }
+
+       return $RetornoLista;
+       
+    }
+
     private function Tipo($novo)
     {
 
@@ -75,8 +95,7 @@ class ProdutosController extends Controller
         {
 
             array_push ($RetornoLista,$protudo);
-        }
-
+        }        
 
 
         $indice+=1; 
@@ -90,7 +109,8 @@ class ProdutosController extends Controller
     public function ListaTodos()
     {
 
-         return $this->produtos;
+         $produtos = $this->Todos();
+         return view('todos',compact('produtos'));
     }
 
 
