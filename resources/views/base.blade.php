@@ -37,7 +37,7 @@
 
 
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="https://github.com/J-paranhos/OFFICIALTWO" target="_blank">OFF 2</a>
+                    <a class="nav-link active" aria-current="page" href="https://github.com/J-paranhos/DISCIPLINAFRAMEORK/tree/OFF2/" target="_blank">OFF 2</a>
 
                 </li>
 
