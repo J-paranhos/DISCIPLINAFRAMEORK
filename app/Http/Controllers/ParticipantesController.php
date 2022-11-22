@@ -41,79 +41,26 @@ class ParticipantesController extends Controller
      */
     public function store(StoreParticipante $request)
     {
-
-
-
         $Participante = new Participantes();
         $Participante->nome  = $request->nome;
         $Participante->sobrenome  = $request->sobrenome;
         $Participante->data_nascimento = $request->nascimento;
         $Participante->endereco = $request->endereco;
         $Participante->email = $request->email;
-
-        if ($EmailExiste = Participantes::where('email',$request->email)->get())
+        $EmailExiste = Participantes::where('email',$request->email)->get();
+        if (sizeof($EmailExiste) >= 1 )
         {
         $request->session()->flash('status', 'Email já cadastrado');
-        return Redirect::route('participante');
+        return  Redirect::route('participante');
         }
         else
+        {
         $Participante->save();
-
-        
         $request->session()->flash('status', 'Participante cadastrado com sucesso!');
         return Redirect::route('paniel');
-
+        }
 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
-
-
-
-
 
 
 

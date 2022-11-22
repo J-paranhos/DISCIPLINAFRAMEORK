@@ -50,7 +50,7 @@ class StoreParticipante extends FormRequest
 
 
                 'email.max' => 'O campo email ultapssou o limite de 100 caracters',
-                'email.required' => 'O campo endereço precisar ser preenchido',
+                'email.required' => 'O campo email precisar ser preenchido',
                 'email.email' => 'O campo email está incorreto',
             ];
         }
